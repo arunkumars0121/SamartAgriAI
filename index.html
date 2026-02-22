@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SmartAgri AI – Unified Farming Assistance Platform</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body><!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <span>🌾 Empowering Indian Farmers with AI-Driven Intelligence</span>
+    <div class="topbar-links">
+      <a href="#">Tamil</a>
+      <a href="#">Hindi</a>
+      <a href="#">Telugu</a>
+      <a href="#">English</a>
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a class="nav-logo" onclick="showPage('home')">
+      <div class="nav-logo-icon">🌿</div>
+      <div class="nav-logo-text">
+        <span class="nav-logo-name">SmartAgri AI</span>
+        <span class="nav-logo-tag">Unified Farming Platform</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a onclick="showPage('home')" id="nav-home" class="active">Home</a>
+      <a onclick="showPage('disease')" id="nav-disease">Disease Detection</a>
+      <a onclick="showPage('chatbot')" id="nav-chatbot">AI Chatbot</a>
+      <a onclick="showPage('schemes')" id="nav-schemes">Gov. Schemes</a>
+      <a onclick="showPage('marketplace')" id="nav-marketplace">Marketplace</a>
+      <a onclick="showPage('prices')" id="nav-prices">Prices & Weather</a>
+    </div>
+    <!-- AUTH BUTTONS shown when logged out -->
+    <div class="nav-auth" id="navAuthButtons">
+      <a class="btn-nav-login" onclick="showPage('auth'); switchTab('login')">Login</a>
+      <a class="btn-nav-register" onclick="showPage('auth'); switchTab('register')">Register</a>
+    </div>
+    <!-- USER PROFILE shown when logged in -->
+    <div class="nav-user" id="navUserProfile" style="display:none; margin-left:auto;">
+      <div class="nav-user-btn" onclick="toggleDropdown()">
+        <div class="nav-user-avatar" id="navAvatarText">R</div>
+        <span class="nav-user-name" id="navUserName">Rajan</span>
+        <span class="nav-user-chevron">▾</span>
+      </div>
+      <div class="nav-user-dropdown" id="userDropdown">
+        <div class="dropdown-header">
+          <div class="dropdown-header-name" id="dropdownName">Rajan Kumar</div>
+          <div class="dropdown-header-email" id="dropdownEmail">rajan@example.com</div>
+        </div>
+        <div class="dropdown-item" onclick="closeDropdown()"><span class="dropdown-item-icon">👤</span> My Profile</div>
+        <div class="dropdown-item" onclick="closeDropdown()"><span class="dropdown-item-icon">🌾</span> My Farm</div>
+        <div class="dropdown-item" onclick="closeDropdown()"><span class="dropdown-item-icon">🛒</span> My Orders</div>
+        <div class="dropdown-item" onclick="closeDropdown()"><span class="dropdown-item-icon">⚙️</span> Settings</div>
+        <div class="dropdown-divider"></div>
+        <div class="dropdown-item dropdown-logout" onclick="logoutUser()"><span class="dropdown-item-icon">🚪</span> Logout</div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════ HOME PAGE ════════════ -->
+<div id="page-home" class="page active">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-leaf"></div>
+    <div class="hero-inner">
+      <div class="fade-in">
+        <div class="hero-badge">
+          <div class="hero-badge-dot"></div>
+          <span>AI-Powered Agriculture Platform</span>
+        </div>
+        <h1>Revolutionizing Farming<br>with <em>Intelligent</em><br>Digital Solutions</h1>
+        <p class="hero-sub">SmartAgri AI empowers every farmer with advanced AI tools — from crop disease detection to direct market access — all in your language, all in one place.</p>
+        <div class="hero-actions">
+          <a class="btn-gold" onclick="showPage('disease')">🔬 Detect Disease</a>
+          <a class="btn-outline" onclick="showPage('chatbot')">💬 Chat with AI</a>
+        </div>
+      </div>
+      <div class="hero-stats fade-in-2">
+        <h3>Platform Highlights</h3>
+        <div class="stat-item">
+          <div class="stat-icon">🌿</div>
+          <div>
+            <div class="stat-val">50+</div>
+            <div class="stat-label">Crop Diseases Detected</div>
+          </div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon">🗣️</div>
+          <div>
+            <div class="stat-val">8</div>
+            <div class="stat-label">Regional Languages Supported</div>
+          </div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon">📋</div>
+          <div>
+            <div class="stat-val">120+</div>
+            <div class="stat-label">Government Schemes Covered</div>
+          </div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon">🛒</div>
+          <div>
+            <div class="stat-val">Direct</div>
+            <div class="stat-label">Farm-to-Consumer Marketplace</div>
+          </div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon">📈</div>
+          <div>
+            <div class="stat-val">Live</div>
+            <div class="stat-label">Crop Prices & Forecasts</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES STRIP -->
+  <div class="features-strip">
+    <div class="features-strip-inner">
+      <div class="feature-pill" onclick="showPage('disease')">
+        <div class="feature-pill-icon">🔬</div>
+        <div class="feature-pill-text">Disease Detection</div>
+      </div>
+      <div class="feature-pill" onclick="showPage('chatbot')">
+        <div class="feature-pill-icon">🤖</div>
+        <div class="feature-pill-text">Multilingual Chatbot</div>
+      </div>
+      <div class="feature-pill" onclick="showPage('schemes')">
+        <div class="feature-pill-icon">📋</div>
+        <div class="feature-pill-text">Gov. Schemes</div>
+      </div>
+      <div class="feature-pill" onclick="showPage('marketplace')">
+        <div class="feature-pill-icon">🛒</div>
+        <div class="feature-pill-text">Marketplace</div>
+      </div>
+      <div class="feature-pill" onclick="showPage('prices')">
+        <div class="feature-pill-icon">📊</div>
+        <div class="feature-pill-text">Prices & Weather</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHALLENGES SECTION -->
+  <section class="section" style="background:var(--green-deep)">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-label" style="color:var(--gold-light)">The Problem We Solve</span>
+        <h2 class="section-title" style="color:var(--white)">Critical Challenges in Indian Agriculture</h2>
+        <p class="section-desc" style="color:rgba(255,255,255,0.6)">Farmers face multiple barriers that reduce productivity and profitability. SmartAgri AI addresses each one with targeted AI solutions.</p>
+      </div>
+      <div class="challenges-grid">
+        <div class="challenge-card">
+          <div class="challenge-num">1</div>
+          <h4>Inaccurate Disease Identification</h4>
+          <p>Farmers struggle with precise plant disease identification, leading to delayed or incorrect treatments and crop loss.</p>
+        </div>
+        <div class="challenge-card">
+          <div class="challenge-num">2</div>
+          <h4>Language Barriers</h4>
+          <p>Limited availability of digital agricultural tools in regional languages restricts access for millions of farmers.</p>
+        </div>
+        <div class="challenge-card">
+          <div class="challenge-num">3</div>
+          <h4>Lack of Scheme Awareness</h4>
+          <p>Many farmers are unaware of beneficial government schemes and subsidies, preventing access to crucial support.</p>
+        </div>
+        <div class="challenge-card">
+          <div class="challenge-num">4</div>
+          <h4>Middlemen Exploitation</h4>
+          <p>The presence of intermediaries in traditional marketplaces reduces farmers' profit margins significantly.</p>
+        </div>
+        <div class="challenge-card">
+          <div class="challenge-num">5</div>
+          <h4>Fragmented Services</h4>
+          <p>The absence of an integrated platform for essential agricultural services creates inefficiencies and access barriers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTIONS CARDS (Wikifarmer style) -->
+  <section class="section section-alt">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-label">Our Solutions</span>
+        <h2 class="section-title">Everything a Farmer Needs,<br>In One Platform</h2>
+        <p class="section-desc">A unified digital hub combining AI, data, and accessibility to transform how India farms.</p>
+      </div>
+      <div class="wiki-grid">
+        <div class="wiki-card" onclick="showPage('disease')">
+          <div class="wiki-card-img card-bg-disease">🌿</div>
+          <div class="wiki-card-body">
+            <div class="wiki-card-cat">AI Technology</div>
+            <h3>AI Plant Disease Detection</h3>
+            <p>Upload a photo of your crop leaf and get instant AI-powered disease diagnosis using advanced CNN models with treatment recommendations.</p>
+            <div class="wiki-card-link" onclick="showPage('disease')">Detect Disease →</div>
+          </div>
+        </div>
+        <div class="wiki-card" onclick="showPage('chatbot')">
+          <div class="wiki-card-img card-bg-chat">🤖</div>
+          <div class="wiki-card-body">
+            <div class="wiki-card-cat">Multilingual AI</div>
+            <h3>Regional Language Chatbot</h3>
+            <p>Chat in Tamil, Hindi, Telugu and more. Get expert agricultural advice via text or voice in your native language, 24/7.</p>
+            <div class="wiki-card-link" onclick="showPage('chatbot')">Start Chatting →</div>
+          </div>
+        </div>
+        <div class="wiki-card" onclick="showPage('schemes')">
+          <div class="wiki-card-img card-bg-scheme">📋</div>
+          <div class="wiki-card-body">
+            <div class="wiki-card-cat">Government Support</div>
+            <h3>Government Scheme Recommendations</h3>
+            <p>Discover personalized government subsidies and schemes tailored to your land size, crop type, and location. Never miss a benefit.</p>
+            <div class="wiki-card-link" onclick="showPage('schemes')">Find Schemes →</div>
+          </div>
+        </div>
+        <div class="wiki-card" onclick="showPage('marketplace')">
+          <div class="wiki-card-img card-bg-market">🛒</div>
+          <div class="wiki-card-body">
+            <div class="wiki-card-cat">Direct Commerce</div>
+            <h3>Direct Farmer Marketplace</h3>
+            <p>Sell your produce directly to buyers — no middlemen. Transparent pricing, dealer verification, and a trusted rating system.</p>
+            <div class="wiki-card-link" onclick="showPage('marketplace')">Browse Market →</div>
+          </div>
+        </div>
+        <div class="wiki-card" onclick="showPage('prices')">
+          <div class="wiki-card-img card-bg-price">📊</div>
+          <div class="wiki-card-body">
+            <div class="wiki-card-cat">Market Intelligence</div>
+            <h3>Real-Time Crop Prices</h3>
+            <p>Access live mandi prices with 7-day trend analysis and ML-powered future price predictions to time your sales perfectly.</p>
+            <div class="wiki-card-link" onclick="showPage('prices')">View Prices →</div>
+          </div>
+        </div>
+        <div class="wiki-card" onclick="showPage('prices')">
+          <div class="wiki-card-img card-bg-weather">🌤️</div>
+          <div class="wiki-card-body">
+            <div class="wiki-card-cat">Weather Intelligence</div>
+            <h3>Location-Based Weather Forecasts</h3>
+            <p>Get accurate 7-day weather forecasts specific to your farm location, helping you plan irrigation, harvesting, and sowing activities.</p>
+            <div class="wiki-card-link" onclick="showPage('prices')">Check Weather →</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECH ARCHITECTURE SECTION -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="two-col">
+        <div>
+          <span class="section-label">Technology Stack</span>
+          <h2 class="section-title">Built on a Robust,<br>Scalable Architecture</h2>
+          <div class="gold-line"></div>
+          <p style="color:var(--text-soft);line-height:1.8;margin-bottom:28px;">Our platform combines cutting-edge AI models with a modern web stack to deliver seamless, reliable agricultural intelligence at scale.</p>
+          <div style="display:flex;flex-direction:column;gap:16px;">
+            <div style="display:flex;align-items:center;gap:16px;padding:16px;background:var(--white);border-radius:10px;border:1px solid var(--cream-dark)">
+              <div style="font-size:28px;">⚛️</div>
+              <div>
+                <div style="font-family:'DM Sans';font-weight:600;font-size:14px;color:var(--green-deep)">Frontend</div>
+                <div style="font-family:'DM Sans';font-size:13px;color:var(--text-soft)">React, HTML5, CSS3, JavaScript — responsive & fast</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:16px;padding:16px;background:var(--white);border-radius:10px;border:1px solid var(--cream-dark)">
+              <div style="font-size:28px;">🐍</div>
+              <div>
+                <div style="font-family:'DM Sans';font-weight:600;font-size:14px;color:var(--green-deep)">Backend</div>
+                <div style="font-family:'DM Sans';font-size:13px;color:var(--text-soft)">Python Flask / Node.js with REST & gRPC APIs</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:16px;padding:16px;background:var(--white);border-radius:10px;border:1px solid var(--cream-dark)">
+              <div style="font-size:28px;">🧠</div>
+              <div>
+                <div style="font-family:'DM Sans';font-weight:600;font-size:14px;color:var(--green-deep)">AI Models</div>
+                <div style="font-family:'DM Sans';font-size:13px;color:var(--text-soft)">CNN for disease detection, NLP for chatbot, ML Regression for price prediction</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:16px;padding:16px;background:var(--white);border-radius:10px;border:1px solid var(--cream-dark)">
+              <div style="font-size:28px;">🗄️</div>
+              <div>
+                <div style="font-family:'DM Sans';font-weight:600;font-size:14px;color:var(--green-deep)">Database</div>
+                <div style="font-family:'DM Sans';font-size:13px;color:var(--text-soft)">MongoDB (NoSQL) & MySQL — flexible and scalable storage</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <span class="section-label">Future Roadmap</span>
+          <h2 class="section-title">What's Coming<br>Next</h2>
+          <div class="gold-line"></div>
+          <div style="display:flex;flex-direction:column;gap:14px;margin-top:8px;">
+            <div style="display:flex;gap:16px;align-items:flex-start;padding:18px;background:linear-gradient(135deg,var(--green-deep),#0a2015);border:1px solid var(--border);border-radius:12px;">
+              <div style="font-size:24px;flex-shrink:0">🎙️</div>
+              <div>
+                <div style="font-family:'DM Sans';font-weight:600;font-size:14px;color:var(--gold-light);margin-bottom:4px">Advanced Speech Chatbot</div>
+                <div style="font-family:'DM Sans';font-size:12px;color:rgba(255,255,255,0.55)">Multilingual speech-to-text for fully voice-driven farming assistance</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:16px;align-items:flex-start;padding:18px;background:linear-gradient(135deg,var(--green-deep),#0a2015);border:1px solid var(--border);border-radius:12px;">
+              <div style="font-size:24px;flex-shrink:0">📱</div>
+              <div>
+                <div style="font-family:'DM Sans';font-weight:600;font-size:14px;color:var(--gold-light);margin-bottom:4px">Android Mobile App</div>
+                <div style="font-family:'DM Sans';font-size:12px;color:rgba(255,255,255,0.55)">Field-ready app for offline-capable access across rural India</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:16px;align-items:flex-start;padding:18px;background:linear-gradient(135deg,var(--green-deep),#0a2015);border:1px solid var(--border);border-radius:12px;">
+              <div style="font-size:24px;flex-shrink:0">📉</div>
+              <div>
+                <div style="font-family:'DM Sans';font-weight:600;font-size:14px;color:var(--gold-light);margin-bottom:4px">LSTM Price Prediction</div>
+                <div style="font-family:'DM Sans';font-size:12px;color:rgba(255,255,255,0.55)">Long Short-Term Memory model for precise real-time market forecasting</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:16px;align-items:flex-start;padding:18px;background:linear-gradient(135deg,var(--green-deep),#0a2015);border:1px solid var(--border);border-radius:12px;">
+              <div style="font-size:24px;flex-shrink:0">📊</div>
+              <div>
+                <div style="font-family:'DM Sans';font-weight:600;font-size:14px;color:var(--gold-light);margin-bottom:4px">Analytics Dashboard</div>
+                <div style="font-family:'DM Sans';font-size:12px;color:rgba(255,255,255,0.55)">Farmer data insights for policy-makers and agricultural stakeholders</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /home -->
+
+<!-- ════════════ DISEASE DETECTION PAGE ════════════ -->
+<div id="page-disease" class="page">
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb"><a onclick="showPage('home')">Home</a> › Disease Detection</div>
+      <h1>🔬 AI Plant Disease Detection</h1>
+      <p>Upload a photo of any crop leaf and our CNN model will instantly diagnose the disease, give accuracy scores, and recommend effective treatments.</p>
+    </div>
+  </div>
+  <section class="section section-alt">
+    <div class="section-inner">
+      <div class="two-col">
+        <div>
+          <h3 style="font-family:'Playfair Display';font-size:22px;color:var(--green-deep);margin-bottom:20px;">Upload Crop Image</h3>
+          <div class="upload-area" id="uploadArea">
+            <input type="file" accept="image/*" onchange="simulateDetection()" />
+            <div class="upload-icon">📸</div>
+            <h3>Drop or Click to Upload</h3>
+            <p>Supports JPG, PNG, WEBP — Max 10MB</p>
+            <p style="margin-top:8px;color:var(--green-soft);font-family:'DM Sans';font-size:13px">Works best with clear, well-lit leaf images</p>
+          </div>
+
+          <div class="disease-result" id="detectionResult" style="display:none;">
+            <h3>🧠 Detection Results</h3>
+            <div class="result-item">
+              <span class="result-label">Disease Detected</span>
+              <span class="result-val" id="disease-name">Leaf Blight (Bacterial)</span>
+            </div>
+            <div class="result-item">
+              <span class="result-label">Crop Type</span>
+              <span class="result-val">Rice / Paddy</span>
+            </div>
+            <div class="result-item">
+              <span class="result-label">AI Confidence</span>
+              <div style="display:flex;align-items:center;gap:10px">
+                <div class="accuracy-bar"><div class="accuracy-fill" style="width:94%"></div></div>
+                <span class="result-val">94.2%</span>
+              </div>
+            </div>
+            <div class="result-item">
+              <span class="result-label">Severity</span>
+              <span class="result-val" style="color:#f59e0b">⚠ Moderate</span>
+            </div>
+            <div style="margin-top:20px;padding:16px;background:rgba(201,168,76,0.1);border-radius:10px;border:1px solid rgba(201,168,76,0.3)">
+              <div style="font-family:'DM Sans';font-size:12px;color:var(--gold-light);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px">Recommended Treatment</div>
+              <div style="font-family:'DM Sans';font-size:13px;color:rgba(255,255,255,0.8);line-height:1.6">Apply copper-based bactericide (e.g., Blitox 50) at 3g/litre. Avoid overhead irrigation. Remove and burn infected plants. Spray every 10 days until symptoms subside.</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h3 style="font-family:'Playfair Display';font-size:22px;color:var(--green-deep);margin-bottom:8px;">How It Works</h3>
+          <div class="gold-line"></div>
+          <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:32px">
+            <div style="display:flex;gap:14px;align-items:flex-start">
+              <div style="width:32px;height:32px;background:linear-gradient(135deg,var(--gold),var(--gold-light));border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'DM Sans';font-weight:700;font-size:13px;color:var(--green-deep);flex-shrink:0">1</div>
+              <div>
+                <div style="font-family:'DM Sans';font-weight:600;font-size:14px;color:var(--green-deep);margin-bottom:2px">Upload Leaf Photo</div>
+                <div style="font-family:'DM Sans';font-size:13px;color:var(--text-soft)">Take a clear photo of the affected crop leaf in good lighting.</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:14px;align-items:flex-start">
+              <div style="width:32px;height:32px;background:linear-gradient(135deg,var(--gold),var(--gold-light));border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'DM Sans';font-weight:700;font-size:13px;color:var(--green-deep);flex-shrink:0">2</div>
+              <div>
+                <div style="font-family:'DM Sans';font-weight:600;font-size:14px;color:var(--green-deep);margin-bottom:2px">CNN Model Analysis</div>
+                <div style="font-family:'DM Sans';font-size:13px;color:var(--text-soft)">Our deep learning model analyzes 512+ visual features to identify the disease.</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:14px;align-items:flex-start">
+              <div style="width:32px;height:32px;background:linear-gradient(135deg,var(--gold),var(--gold-light));border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'DM Sans';font-weight:700;font-size:13px;color:var(--green-deep);flex-shrink:0">3</div>
+              <div>
+                <div style="font-family:'DM Sans';font-weight:600;font-size:14px;color:var(--green-deep);margin-bottom:2px">Get Treatment Plan</div>
+                <div style="font-family:'DM Sans';font-size:13px;color:var(--text-soft)">Receive a detailed diagnosis with confidence score and actionable treatment steps.</div>
+              </div>
+            </div>
+          </div>
+          <h3 style="font-family:'Playfair Display';font-size:20px;color:var(--green-deep);margin-bottom:16px;">Commonly Detected Diseases</h3>
+          <div class="disease-list" style="grid-template-columns:repeat(2,1fr)">
+            <div class="disease-item"><div class="disease-item-icon">🍃</div><h4>Leaf Blight</h4><p>Bacterial infection causing yellow-brown patches on leaves.</p></div>
+            <div class="disease-item"><div class="disease-item-icon">🔴</div><h4>Rust Disease</h4><p>Fungal infection with orange/red pustules on leaf surface.</p></div>
+            <div class="disease-item"><div class="disease-item-icon">⚫</div><h4>Blast Disease</h4><p>Most destructive rice disease causing diamond-shaped lesions.</p></div>
+            <div class="disease-item"><div class="disease-item-icon">🟤</div><h4>Brown Spot</h4><p>Fungal spots on leaves reducing photosynthesis efficiency.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ════════════ CHATBOT PAGE ════════════ -->
+<div id="page-chatbot" class="page">
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb"><a onclick="showPage('home')">Home</a> › AI Chatbot</div>
+      <h1>🤖 Multilingual Farming Chatbot</h1>
+      <p>Get expert agricultural guidance in your language — Tamil, Hindi, Telugu, Kannada, Malayalam and more. Text or voice, we're here 24/7.</p>
+    </div>
+  </div>
+  <section class="section section-alt">
+    <div class="section-inner">
+      <div class="chatbot-layout">
+        <div class="chat-sidebar">
+          <h4>🌐 Select Language</h4>
+          <div class="lang-btn selected" onclick="selectLang(this,'English')"><span>🇬🇧</span> English</div>
+          <div class="lang-btn" onclick="selectLang(this,'Tamil')"><span>🇮🇳</span> தமிழ் (Tamil)</div>
+          <div class="lang-btn" onclick="selectLang(this,'Hindi')"><span>🇮🇳</span> हिंदी (Hindi)</div>
+          <div class="lang-btn" onclick="selectLang(this,'Telugu')"><span>🇮🇳</span> తెలుగు (Telugu)</div>
+          <div class="lang-btn" onclick="selectLang(this,'Kannada')"><span>🇮🇳</span> ಕನ್ನಡ (Kannada)</div>
+          <div class="lang-btn" onclick="selectLang(this,'Malayalam')"><span>🇮🇳</span> മലയാളം (Malayalam)</div>
+
+          <div style="margin-top:28px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.1)">
+            <h4 style="margin-bottom:14px">💡 Quick Topics</h4>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <div onclick="sendQuickMsg('How do I control pests on my rice crop?')" style="padding:8px 12px;background:rgba(255,255,255,0.06);border-radius:8px;cursor:pointer;font-family:'DM Sans';font-size:12px;color:rgba(255,255,255,0.7);transition:all 0.2s" onmouseover="this.style.background='rgba(201,168,76,0.15)'" onmouseout="this.style.background='rgba(255,255,255,0.06)'">🌾 Pest Control for Rice</div>
+              <div onclick="sendQuickMsg('What fertilizers should I use for wheat?')" style="padding:8px 12px;background:rgba(255,255,255,0.06);border-radius:8px;cursor:pointer;font-family:'DM Sans';font-size:12px;color:rgba(255,255,255,0.7);transition:all 0.2s" onmouseover="this.style.background='rgba(201,168,76,0.15)'" onmouseout="this.style.background='rgba(255,255,255,0.06)'">🌿 Wheat Fertilization Guide</div>
+              <div onclick="sendQuickMsg('Tell me about PM-KISAN scheme')" style="padding:8px 12px;background:rgba(255,255,255,0.06);border-radius:8px;cursor:pointer;font-family:'DM Sans';font-size:12px;color:rgba(255,255,255,0.7);transition:all 0.2s" onmouseover="this.style.background='rgba(201,168,76,0.15)'" onmouseout="this.style.background='rgba(255,255,255,0.06)'">📋 PM-KISAN Scheme Details</div>
+              <div onclick="sendQuickMsg('Best time to sow tomatoes in Tamil Nadu?')" style="padding:8px 12px;background:rgba(255,255,255,0.06);border-radius:8px;cursor:pointer;font-family:'DM Sans';font-size:12px;color:rgba(255,255,255,0.7);transition:all 0.2s" onmouseover="this.style.background='rgba(201,168,76,0.15)'" onmouseout="this.style.background='rgba(255,255,255,0.06)'">🍅 Tomato Sowing Calendar</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="chat-window">
+          <div class="chat-header">
+            <div class="chat-avatar">🤖</div>
+            <div>
+              <div class="chat-header-name">AgriBot – SmartAgri AI</div>
+              <div class="chat-header-status">Agricultural Expert Assistant</div>
+            </div>
+            <div class="chat-online"></div>
+          </div>
+          <div class="chat-messages" id="chatMessages">
+            <div class="chat-msg bot">
+              <div class="msg-bubble">👋 Vanakkam! I'm AgriBot, your AI farming assistant. I can help you with crop diseases, fertilizers, government schemes, market prices, and more. What can I help you with today?</div>
+              <div class="msg-time">Just now</div>
+            </div>
+          </div>
+          <div class="chat-input-row">
+            <button class="voice-btn" title="Voice Input">🎙️</button>
+            <input type="text" class="chat-input" id="chatInput" placeholder="Ask me anything about farming..." onkeypress="handleChatKey(event)" />
+            <button class="chat-send-btn" onclick="sendChatMessage()">➤</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ════════════ GOVERNMENT SCHEMES PAGE ════════════ -->
+<div id="page-schemes" class="page">
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb"><a onclick="showPage('home')">Home</a> › Government Schemes</div>
+      <h1>📋 Government Scheme Finder</h1>
+      <p>Discover government subsidies, insurance schemes, and loans tailored to your farm profile. Never miss out on benefits you deserve.</p>
+    </div>
+  </div>
+  <section class="section section-alt">
+    <div class="section-inner">
+      <!-- Filter Bar -->
+      <div class="scheme-filter-row">
+        <div class="filter-tag active">All Schemes</div>
+        <div class="filter-tag">Subsidies</div>
+        <div class="filter-tag">Insurance</div>
+        <div class="filter-tag">Loans</div>
+        <div class="filter-tag">Seeds & Equipment</div>
+        <div class="filter-tag">Tamil Nadu</div>
+        <div class="filter-tag">Central Govt.</div>
+      </div>
+
+      <div class="scheme-grid">
+        <div class="scheme-card">
+          <div class="scheme-icon" style="background:#dcfce7">📜</div>
+          <div>
+            <h4>PM-KISAN Samman Nidhi</h4>
+            <p>Direct income support of ₹6,000/year to small and marginal farmers in three equal installments directly to bank accounts.</p>
+            <span class="scheme-tag tag-active">Active</span>
+            <div style="margin-top:12px;font-family:'DM Sans';font-size:12px;color:var(--green-soft);cursor:pointer">Check Eligibility →</div>
+          </div>
+        </div>
+        <div class="scheme-card">
+          <div class="scheme-icon" style="background:#fef3c7">🌾</div>
+          <div>
+            <h4>Pradhan Mantri Fasal Bima Yojana</h4>
+            <p>Comprehensive crop insurance covering pre-sowing to post-harvest losses due to non-preventable natural calamities, pests and diseases.</p>
+            <span class="scheme-tag tag-insurance">Insurance</span>
+            <div style="margin-top:12px;font-family:'DM Sans';font-size:12px;color:var(--green-soft);cursor:pointer">Apply Now →</div>
+          </div>
+        </div>
+        <div class="scheme-card">
+          <div class="scheme-icon" style="background:#dbeafe">💧</div>
+          <div>
+            <h4>PM Krishi Sinchayee Yojana</h4>
+            <p>Water conservation and field-level water management scheme promoting 'Har Khet Ko Pani' and 'More Crop Per Drop' approach.</p>
+            <span class="scheme-tag tag-subsidy">Subsidy</span>
+            <div style="margin-top:12px;font-family:'DM Sans';font-size:12px;color:var(--green-soft);cursor:pointer">Learn More →</div>
+          </div>
+        </div>
+        <div class="scheme-card">
+          <div class="scheme-icon" style="background:#fce7f3">🏦</div>
+          <div>
+            <h4>Kisan Credit Card (KCC)</h4>
+            <p>Flexible credit system providing farmers with timely and adequate credit support for cultivation, allied activities, and maintenance.</p>
+            <span class="scheme-tag tag-loan">Loan</span>
+            <div style="margin-top:12px;font-family:'DM Sans';font-size:12px;color:var(--green-soft);cursor:pointer">Apply KCC →</div>
+          </div>
+        </div>
+        <div class="scheme-card">
+          <div class="scheme-icon" style="background:#d1fae5">🌱</div>
+          <div>
+            <h4>National Mission for Sustainable Agriculture</h4>
+            <p>Promotes sustainable agriculture through climate change adaptation measures, soil health management, and water use efficiency.</p>
+            <span class="scheme-tag tag-active">Active</span>
+            <div style="margin-top:12px;font-family:'DM Sans';font-size:12px;color:var(--green-soft);cursor:pointer">Know More →</div>
+          </div>
+        </div>
+        <div class="scheme-card">
+          <div class="scheme-icon" style="background:#ede9fe">🏗️</div>
+          <div>
+            <h4>Agricultural Infrastructure Fund</h4>
+            <p>Medium-long term debt financing for post-harvest management infrastructure and viable community farming assets.</p>
+            <span class="scheme-tag tag-loan">Loan</span>
+            <div style="margin-top:12px;font-family:'DM Sans';font-size:12px;color:var(--green-soft);cursor:pointer">Apply Now →</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ════════════ MARKETPLACE PAGE ════════════ -->
+<div id="page-marketplace" class="page">
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb"><a onclick="showPage('home')">Home</a> › Farmer Marketplace</div>
+      <h1>🛒 Direct Farmer Marketplace</h1>
+      <p>Buy fresh produce directly from verified farmers. No middlemen, transparent pricing, and a trusted review system for every seller.</p>
+    </div>
+  </div>
+  <section class="section section-alt">
+    <div class="section-inner">
+      <div class="market-search-bar">
+        <input type="text" class="market-search" placeholder="Search for vegetables, grains, fruits..." />
+        <select style="border:1px solid var(--cream-dark);border-radius:10px;padding:12px 16px;font-family:'DM Sans';font-size:14px;outline:none;background:var(--white);color:var(--text-dark)">
+          <option>All Categories</option><option>Vegetables</option><option>Grains</option><option>Fruits</option><option>Pulses</option>
+        </select>
+        <button class="market-btn">🔍 Search</button>
+        <button class="market-btn" style="background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--green-deep)">+ Sell Your Produce</button>
+      </div>
+
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-img" style="background:linear-gradient(135deg,#fef3c7,#fde68a)">🍅
+            <span class="product-badge">ORGANIC</span>
+          </div>
+          <div class="product-body">
+            <div class="product-name">Fresh Tomatoes</div>
+            <div class="product-farmer">🧑‍🌾 Rajan Kumar, Madurai</div>
+            <div class="product-stars">★★★★★</div>
+            <div style="display:flex;align-items:baseline;gap:6px;margin-top:8px">
+              <div class="product-price">₹28</div>
+              <div class="product-unit">/kg</div>
+            </div>
+            <div class="product-actions">
+              <button class="product-btn primary">Add to Cart</button>
+              <button class="product-btn secondary">Contact</button>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img" style="background:linear-gradient(135deg,#d1fae5,#a7f3d0)">🥬
+            <span class="product-badge">FRESH</span>
+          </div>
+          <div class="product-body">
+            <div class="product-name">Spinach (Palak)</div>
+            <div class="product-farmer">🧑‍🌾 Kavitha S, Coimbatore</div>
+            <div class="product-stars">★★★★☆</div>
+            <div style="display:flex;align-items:baseline;gap:6px;margin-top:8px">
+              <div class="product-price">₹35</div>
+              <div class="product-unit">/bundle</div>
+            </div>
+            <div class="product-actions">
+              <button class="product-btn primary">Add to Cart</button>
+              <button class="product-btn secondary">Contact</button>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img" style="background:linear-gradient(135deg,#fce7f3,#f9a8d4)">🧅
+            <span class="product-badge">BULK</span>
+          </div>
+          <div class="product-body">
+            <div class="product-name">Red Onions</div>
+            <div class="product-farmer">🧑‍🌾 Murugan V, Salem</div>
+            <div class="product-stars">★★★★★</div>
+            <div style="display:flex;align-items:baseline;gap:6px;margin-top:8px">
+              <div class="product-price">₹22</div>
+              <div class="product-unit">/kg</div>
+            </div>
+            <div class="product-actions">
+              <button class="product-btn primary">Add to Cart</button>
+              <button class="product-btn secondary">Contact</button>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img" style="background:linear-gradient(135deg,#dbeafe,#93c5fd)">🫘
+            <span class="product-badge">ORGANIC</span>
+          </div>
+          <div class="product-body">
+            <div class="product-name">Toor Dal (Raw)</div>
+            <div class="product-farmer">🧑‍🌾 Selvi R, Tirunelveli</div>
+            <div class="product-stars">★★★★☆</div>
+            <div style="display:flex;align-items:baseline;gap:6px;margin-top:8px">
+              <div class="product-price">₹95</div>
+              <div class="product-unit">/kg</div>
+            </div>
+            <div class="product-actions">
+              <button class="product-btn primary">Add to Cart</button>
+              <button class="product-btn secondary">Contact</button>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img" style="background:linear-gradient(135deg,#f5f3ff,#ddd6fe)">🌾
+            <span class="product-badge">NEW</span>
+          </div>
+          <div class="product-body">
+            <div class="product-name">Basmati Rice</div>
+            <div class="product-farmer">🧑‍🌾 Anand K, Thanjavur</div>
+            <div class="product-stars">★★★★★</div>
+            <div style="display:flex;align-items:baseline;gap:6px;margin-top:8px">
+              <div class="product-price">₹72</div>
+              <div class="product-unit">/kg</div>
+            </div>
+            <div class="product-actions">
+              <button class="product-btn primary">Add to Cart</button>
+              <button class="product-btn secondary">Contact</button>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img" style="background:linear-gradient(135deg,#fef9c3,#fde047)">🥭
+            <span class="product-badge">SEASONAL</span>
+          </div>
+          <div class="product-body">
+            <div class="product-name">Alphonso Mangoes</div>
+            <div class="product-farmer">🧑‍🌾 Priya M, Kanyakumari</div>
+            <div class="product-stars">★★★★★</div>
+            <div style="display:flex;align-items:baseline;gap:6px;margin-top:8px">
+              <div class="product-price">₹120</div>
+              <div class="product-unit">/kg</div>
+            </div>
+            <div class="product-actions">
+              <button class="product-btn primary">Add to Cart</button>
+              <button class="product-btn secondary">Contact</button>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img" style="background:linear-gradient(135deg,#dcfce7,#86efac)">🥦
+            <span class="product-badge">FRESH</span>
+          </div>
+          <div class="product-body">
+            <div class="product-name">Broccoli</div>
+            <div class="product-farmer">🧑‍🌾 Suresh P, Ooty</div>
+            <div class="product-stars">★★★★☆</div>
+            <div style="display:flex;align-items:baseline;gap:6px;margin-top:8px">
+              <div class="product-price">₹65</div>
+              <div class="product-unit">/head</div>
+            </div>
+            <div class="product-actions">
+              <button class="product-btn primary">Add to Cart</button>
+              <button class="product-btn secondary">Contact</button>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img" style="background:linear-gradient(135deg,#fee2e2,#fca5a5)">🥕
+            <span class="product-badge">ORGANIC</span>
+          </div>
+          <div class="product-body">
+            <div class="product-name">Organic Carrots</div>
+            <div class="product-farmer">🧑‍🌾 Lakshmi A, Dindigul</div>
+            <div class="product-stars">★★★★★</div>
+            <div style="display:flex;align-items:baseline;gap:6px;margin-top:8px">
+              <div class="product-price">₹42</div>
+              <div class="product-unit">/kg</div>
+            </div>
+            <div class="product-actions">
+              <button class="product-btn primary">Add to Cart</button>
+              <button class="product-btn secondary">Contact</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ════════════ CROP PRICES & WEATHER PAGE ════════════ -->
+<div id="page-prices" class="page">
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb"><a onclick="showPage('home')">Home</a> › Prices & Weather</div>
+      <h1>📊 Real-Time Prices & Weather</h1>
+      <p>Live mandi prices with 7-day trend analysis, ML-powered future predictions, and accurate location-based weather forecasts.</p>
+    </div>
+  </div>
+  <section class="section section-alt">
+    <div class="section-inner">
+      <div class="prices-layout">
+        <div>
+          <div class="prices-table-wrap">
+            <div class="prices-table-header">
+              <h3>🌾 Live Mandi Prices — Chennai</h3>
+              <div class="live-badge"><div style="width:6px;height:6px;background:#4ade80;border-radius:50%"></div> Live</div>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Crop</th>
+                  <th>Market</th>
+                  <th>Price (₹/Qtl)</th>
+                  <th>Change</th>
+                  <th>7-Day Trend</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>🌾 Rice (Common)</td><td>Koyambedu</td><td>2,180</td><td class="price-up trend-up">+45</td><td><div style="width:80px;height:24px;background:linear-gradient(90deg,#16a34a20,#16a34a40);border-radius:4px;position:relative"><div style="position:absolute;bottom:2px;left:0;right:0;height:2px;background:linear-gradient(90deg,#16a34a80,#16a34a);border-radius:2px"></div></div></td></tr>
+                <tr><td>🌽 Maize</td><td>Madurai</td><td>1,840</td><td class="price-down trend-down">-28</td><td><div style="width:80px;height:24px;background:linear-gradient(90deg,#dc262620,#dc262640);border-radius:4px"></div></td></tr>
+                <tr><td>🫘 Toor Dal</td><td>Salem</td><td>9,650</td><td class="price-up trend-up">+120</td><td><div style="width:80px;height:24px;background:linear-gradient(90deg,#16a34a20,#16a34a40);border-radius:4px"></div></td></tr>
+                <tr><td>🥜 Groundnut</td><td>Dindigul</td><td>5,480</td><td class="price-up trend-up">+65</td><td><div style="width:80px;height:24px;background:linear-gradient(90deg,#16a34a20,#16a34a40);border-radius:4px"></div></td></tr>
+                <tr><td>🌶️ Chilli (Dry)</td><td>Guntur</td><td>12,200</td><td class="price-down trend-down">-340</td><td><div style="width:80px;height:24px;background:linear-gradient(90deg,#dc262620,#dc262640);border-radius:4px"></div></td></tr>
+                <tr><td>🧅 Onion</td><td>Nashik</td><td>2,860</td><td class="price-up trend-up">+85</td><td><div style="width:80px;height:24px;background:linear-gradient(90deg,#16a34a20,#16a34a40);border-radius:4px"></div></td></tr>
+                <tr><td>🍅 Tomato</td><td>Koyambedu</td><td>1,420</td><td class="price-down trend-down">-95</td><td><div style="width:80px;height:24px;background:linear-gradient(90deg,#dc262620,#dc262640);border-radius:4px"></div></td></tr>
+                <tr><td>🌿 Turmeric</td><td>Erode</td><td>8,900</td><td class="price-up trend-up">+200</td><td><div style="width:80px;height:24px;background:linear-gradient(90deg,#16a34a20,#16a34a40);border-radius:4px"></div></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="margin-top:20px;padding:20px 24px;background:var(--white);border:1px solid var(--cream-dark);border-radius:16px">
+            <h4 style="font-family:'Playfair Display';font-size:17px;color:var(--green-deep);margin-bottom:12px">🤖 ML Price Prediction — Next 7 Days</h4>
+            <p style="font-family:'DM Sans';font-size:13px;color:var(--text-soft);margin-bottom:16px">Based on historical mandi data, weather patterns, and market demand signals</p>
+            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px">
+              <div style="padding:14px;background:var(--cream);border-radius:10px;text-align:center"><div style="font-family:'DM Sans';font-size:11px;color:var(--text-soft);margin-bottom:6px">Rice</div><div style="font-family:'Playfair Display';font-size:16px;color:var(--green-dark);font-weight:700">₹2,240</div><div style="font-size:11px;color:#16a34a">▲ +2.7%</div></div>
+              <div style="padding:14px;background:var(--cream);border-radius:10px;text-align:center"><div style="font-family:'DM Sans';font-size:11px;color:var(--text-soft);margin-bottom:6px">Maize</div><div style="font-family:'Playfair Display';font-size:16px;color:var(--green-dark);font-weight:700">₹1,790</div><div style="font-size:11px;color:#dc2626">▼ -2.7%</div></div>
+              <div style="padding:14px;background:var(--cream);border-radius:10px;text-align:center"><div style="font-family:'DM Sans';font-size:11px;color:var(--text-soft);margin-bottom:6px">Toor Dal</div><div style="font-family:'Playfair Display';font-size:16px;color:var(--green-dark);font-weight:700">₹9,850</div><div style="font-size:11px;color:#16a34a">▲ +2.1%</div></div>
+              <div style="padding:14px;background:var(--cream);border-radius:10px;text-align:center"><div style="font-family:'DM Sans';font-size:11px;color:var(--text-soft);margin-bottom:6px">Onion</div><div style="font-family:'Playfair Display';font-size:16px;color:var(--green-dark);font-weight:700">₹2,960</div><div style="font-size:11px;color:#16a34a">▲ +3.5%</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="weather-card">
+            <h3>🌤️ Weather Forecast</h3>
+            <div class="weather-location">📍 Chennai, Tamil Nadu</div>
+            <div class="weather-main">
+              <div class="weather-main-icon">⛅</div>
+              <div>
+                <div class="weather-temp">28<sup>°C</sup></div>
+                <div class="weather-desc">Partly Cloudy</div>
+              </div>
+            </div>
+            <div class="weather-grid">
+              <div class="weather-detail">
+                <div class="weather-detail-label">Humidity</div>
+                <div class="weather-detail-val">74%</div>
+              </div>
+              <div class="weather-detail">
+                <div class="weather-detail-label">Wind Speed</div>
+                <div class="weather-detail-val">18 km/h</div>
+              </div>
+              <div class="weather-detail">
+                <div class="weather-detail-label">Rainfall</div>
+                <div class="weather-detail-val">12 mm</div>
+              </div>
+              <div class="weather-detail">
+                <div class="weather-detail-label">UV Index</div>
+                <div class="weather-detail-val">High (8)</div>
+              </div>
+            </div>
+            <div class="forecast-row">
+              <div class="forecast-day"><div class="forecast-day-name">Mon</div><div class="forecast-icon">☀️</div><div class="forecast-temp">31°</div></div>
+              <div class="forecast-day"><div class="forecast-day-name">Tue</div><div class="forecast-icon">⛅</div><div class="forecast-temp">29°</div></div>
+              <div class="forecast-day"><div class="forecast-day-name">Wed</div><div class="forecast-icon">🌧️</div><div class="forecast-temp">25°</div></div>
+              <div class="forecast-day"><div class="forecast-day-name">Thu</div><div class="forecast-icon">🌦️</div><div class="forecast-temp">27°</div></div>
+              <div class="forecast-day"><div class="forecast-day-name">Fri</div><div class="forecast-icon">☀️</div><div class="forecast-temp">32°</div></div>
+            </div>
+          </div>
+
+          <div style="margin-top:20px;background:linear-gradient(135deg,var(--green-dark),var(--green-deep));border:1px solid var(--border);border-radius:16px;padding:24px">
+            <h4 style="font-family:'Playfair Display';color:var(--gold-light);font-size:16px;margin-bottom:16px">🌾 Farming Advisory</h4>
+            <div style="display:flex;flex-direction:column;gap:12px">
+              <div style="padding:12px;background:rgba(255,255,255,0.06);border-radius:10px;border-left:3px solid var(--gold)">
+                <div style="font-family:'DM Sans';font-size:12px;color:var(--gold-light);margin-bottom:4px">💧 Irrigation</div>
+                <div style="font-family:'DM Sans';font-size:12px;color:rgba(255,255,255,0.7)">Rainfall expected Wednesday. Skip irrigation Tuesday to conserve water.</div>
+              </div>
+              <div style="padding:12px;background:rgba(255,255,255,0.06);border-radius:10px;border-left:3px solid #4ade80">
+                <div style="font-family:'DM Sans';font-size:12px;color:#4ade80;margin-bottom:4px">✅ Sowing</div>
+                <div style="font-family:'DM Sans';font-size:12px;color:rgba(255,255,255,0.7)">Conditions favorable for rice transplanting from Thursday onwards.</div>
+              </div>
+              <div style="padding:12px;background:rgba(255,255,255,0.06);border-radius:10px;border-left:3px solid #f59e0b">
+                <div style="font-family:'DM Sans';font-size:12px;color:#f59e0b;margin-bottom:4px">⚠ Pest Alert</div>
+                <div style="font-family:'DM Sans';font-size:12px;color:rgba(255,255,255,0.7)">High humidity may increase fungal risks. Inspect crops for early blight signs.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ════════════ LOGIN / REGISTER PAGE ════════════ -->
+<div id="page-auth" class="page">
+  <div class="auth-page">
+    <div class="auth-bg-grid"></div>
+    <div class="auth-bg-orb1"></div>
+    <div class="auth-bg-orb2"></div>
+    <div class="auth-container">
+      <!-- LEFT INFO PANEL -->
+      <div class="auth-info">
+        <div class="auth-info-badge">🌿 SmartAgri AI Platform</div>
+        <h2>Join <em>India's Smartest</em> Farming Community</h2>
+        <p>Access AI-powered disease detection, government schemes, real-time market prices, and a direct marketplace — all built for Indian farmers.</p>
+        <div class="auth-features">
+          <div class="auth-feature-item"><div class="auth-feature-check">✓</div>AI crop disease detection with 94%+ accuracy</div>
+          <div class="auth-feature-item"><div class="auth-feature-check">✓</div>Multilingual chatbot in Tamil, Hindi, Telugu & more</div>
+          <div class="auth-feature-item"><div class="auth-feature-check">✓</div>Personalized government scheme recommendations</div>
+          <div class="auth-feature-item"><div class="auth-feature-check">✓</div>Direct marketplace — sell without middlemen</div>
+          <div class="auth-feature-item"><div class="auth-feature-check">✓</div>Live mandi prices and weather forecasts</div>
+        </div>
+      </div>
+      <!-- RIGHT FORM CARD -->
+      <div class="auth-card">
+        <div class="auth-tabs">
+          <div class="auth-tab active" id="tab-login" onclick="switchTab('login')">🔐 Login</div>
+          <div class="auth-tab" id="tab-register" onclick="switchTab('register')">✨ Register</div>
+        </div>
+        <!-- LOGIN PANEL -->
+        <div class="auth-form-panel active" id="panel-login">
+          <div style="margin-bottom:24px;">
+            <h3 style="font-family:'Playfair Display';font-size:22px;color:var(--white);margin-bottom:6px;">Welcome Back!</h3>
+            <p style="font-family:'DM Sans';font-size:13px;color:rgba(255,255,255,0.45);">Sign in to access your farming dashboard</p>
+          </div>
+          <div class="form-error" id="loginError">Invalid email or password. Please try again.</div>
+          <div class="form-success" id="loginSuccess">Login successful! Redirecting...</div>
+          <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <div class="form-input-wrap">
+              <span class="form-input-icon">📧</span>
+              <input type="email" class="form-input" id="loginEmail" placeholder="your@email.com" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Password</label>
+            <div class="form-input-wrap">
+              <span class="form-input-icon">🔒</span>
+              <input type="password" class="form-input" id="loginPassword" placeholder="Enter your password" />
+              <span class="form-input-eye" onclick="togglePass('loginPassword', this)">👁️</span>
+            </div>
+          </div>
+          <a class="forgot-link" href="#">Forgot password?</a>
+          <div class="form-checkbox-row">
+            <input type="checkbox" class="form-checkbox" id="rememberMe" checked />
+            <label class="form-checkbox-label" for="rememberMe">Keep me signed in for 30 days</label>
+          </div>
+          <button class="btn-auth" onclick="handleLogin()">Sign In →</button>
+          <div class="auth-divider">or continue with</div>
+          <div class="social-btns">
+            <button class="social-btn" onclick="socialLogin('Google')">🌐 Google</button>
+            <button class="social-btn" onclick="socialLogin('Facebook')">📘 Facebook</button>
+          </div>
+          <p style="font-family:'DM Sans';font-size:13px;color:rgba(255,255,255,0.4);text-align:center;margin-top:24px;">
+            Don't have an account? <a onclick="switchTab('register')" style="color:var(--gold-light);cursor:pointer;text-decoration:none;">Register free →</a>
+          </p>
+        </div>
+        <!-- REGISTER PANEL -->
+        <div class="auth-form-panel" id="panel-register">
+          <div style="margin-bottom:20px;">
+            <h3 style="font-family:'Playfair Display';font-size:22px;color:var(--white);margin-bottom:6px;">Create Your Account</h3>
+            <p style="font-family:'DM Sans';font-size:13px;color:rgba(255,255,255,0.45);">Join thousands of farmers using SmartAgri AI</p>
+          </div>
+          <div class="form-error" id="registerError"></div>
+          <div class="form-success" id="registerSuccess">Account created! Please login to continue.</div>
+          <div style="margin-bottom:20px;">
+            <label class="form-label">I am a</label>
+            <div class="user-type-grid">
+              <div class="user-type-btn selected" onclick="selectUserType(this)" data-type="Farmer"><div class="user-type-icon">🧑‍🌾</div><div class="user-type-label">Farmer</div></div>
+              <div class="user-type-btn" onclick="selectUserType(this)" data-type="Buyer"><div class="user-type-icon">🛒</div><div class="user-type-label">Buyer</div></div>
+              <div class="user-type-btn" onclick="selectUserType(this)" data-type="Dealer"><div class="user-type-icon">🏪</div><div class="user-type-label">Dealer</div></div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">First Name</label>
+              <div class="form-input-wrap"><span class="form-input-icon">👤</span><input type="text" class="form-input" id="regFirstName" placeholder="Rajan" /></div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Last Name</label>
+              <div class="form-input-wrap"><span class="form-input-icon">👤</span><input type="text" class="form-input" id="regLastName" placeholder="Kumar" /></div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Mobile Number</label>
+            <div class="form-input-wrap"><span class="form-input-icon">📱</span><input type="tel" class="form-input" id="regPhone" placeholder="+91 98765 43210" /></div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <div class="form-input-wrap"><span class="form-input-icon">📧</span><input type="email" class="form-input" id="regEmail" placeholder="your@email.com" /></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">State</label>
+              <select class="form-select" id="regState">
+                <option value="">Select State</option>
+                <option>Tamil Nadu</option><option>Andhra Pradesh</option><option>Karnataka</option>
+                <option>Kerala</option><option>Maharashtra</option><option>Punjab</option>
+                <option>Uttar Pradesh</option><option>Rajasthan</option><option>Gujarat</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">District</label>
+              <div class="form-input-wrap"><span class="form-input-icon">📍</span><input type="text" class="form-input" id="regDistrict" placeholder="Chennai" /></div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Password</label>
+            <div class="form-input-wrap">
+              <span class="form-input-icon">🔒</span>
+              <input type="password" class="form-input" id="regPassword" placeholder="Min 8 characters" oninput="checkStrength(this.value)" />
+              <span class="form-input-eye" onclick="togglePass('regPassword', this)">👁️</span>
+            </div>
+            <div class="password-strength">
+              <div class="strength-bar">
+                <div class="strength-seg" id="s1"></div><div class="strength-seg" id="s2"></div>
+                <div class="strength-seg" id="s3"></div><div class="strength-seg" id="s4"></div>
+              </div>
+              <div class="strength-label" id="strengthLabel">Enter a password</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Confirm Password</label>
+            <div class="form-input-wrap">
+              <span class="form-input-icon">🔒</span>
+              <input type="password" class="form-input" id="regConfirm" placeholder="Re-enter password" />
+              <span class="form-input-eye" onclick="togglePass('regConfirm', this)">👁️</span>
+            </div>
+          </div>
+          <div class="form-checkbox-row">
+            <input type="checkbox" class="form-checkbox" id="agreeTerms" />
+            <label class="form-checkbox-label" for="agreeTerms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</label>
+          </div>
+          <button class="btn-auth" onclick="handleRegister()">Create Account 🌾</button>
+          <div class="auth-divider">or register with</div>
+          <div class="social-btns">
+            <button class="social-btn" onclick="socialLogin('Google')">🌐 Google</button>
+            <button class="social-btn" onclick="socialLogin('Facebook')">📘 Facebook</button>
+          </div>
+          <p style="font-family:'DM Sans';font-size:13px;color:rgba(255,255,255,0.4);text-align:center;margin-top:24px;">
+            Already have an account? <a onclick="switchTab('login')" style="color:var(--gold-light);cursor:pointer;text-decoration:none;">Sign in →</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+  <div class="toast-icon" id="toastIcon">✅</div>
+  <div><div class="toast-title" id="toastTitle">Success</div><div class="toast-msg" id="toastMsg">Operation completed.</div></div>
+</div>
+
+
+<!-- ════════════ FOOTER ════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <div class="footer-logo-icon">🌿</div>
+          <div class="footer-logo-name">SmartAgri AI</div>
+        </div>
+        <p class="footer-desc">Empowering Indian farmers with AI-driven intelligence — disease detection, multilingual support, market access, and government scheme guidance — all in one platform.</p>
+        <div style="margin-top:20px;display:flex;gap:12px">
+          <div style="width:36px;height:36px;background:rgba(255,255,255,0.08);border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;cursor:pointer">🐦</div>
+          <div style="width:36px;height:36px;background:rgba(255,255,255,0.08);border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;cursor:pointer">📘</div>
+          <div style="width:36px;height:36px;background:rgba(255,255,255,0.08);border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;cursor:pointer">📸</div>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Platform</h5>
+        <a onclick="showPage('disease')">Disease Detection</a>
+        <a onclick="showPage('chatbot')">AI Chatbot</a>
+        <a onclick="showPage('schemes')">Gov. Schemes</a>
+        <a onclick="showPage('marketplace')">Marketplace</a>
+        <a onclick="showPage('prices')">Prices & Weather</a>
+      </div>
+      <div class="footer-col">
+        <h5>Resources</h5>
+        <a href="#">Crop Encyclopedia</a>
+        <a href="#">Disease Library</a>
+        <a href="#">Farming Calendar</a>
+        <a href="#">Soil Health Guide</a>
+        <a href="#">Pest Management</a>
+      </div>
+      <div class="footer-col">
+        <h5>About</h5>
+        <a href="#">About SmartAgri</a>
+        <a href="#">Our Technology</a>
+        <a href="#">Team</a>
+        <a href="#">Contact</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2024 SmartAgri AI. All rights reserved.</div>
+      <div class="footer-team">Built by Dharsha R · Arunkumar S · Arivazhagan A | 2023PECCB</div>
+    </div>
+  </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
